@@ -8,12 +8,13 @@
   "license": "ISC",
   "type": "module",
   "scripts": {
-    "compile": "tsc",
-    "start": "npm run compile && node ./dist/index.js"
+    "compile": "tsc -w",
+    "start": "nodemon ./dist/index.js"
   },
   "dependencies": {
     "@apollo/server": "^4.11.3",
-    "graphql": "^16.10.0"
+    "graphql": "^16.10.0",
+    "nodemon": "^3.1.9"
   },
   "devDependencies": {
     "@types/node": "^22.10.10",

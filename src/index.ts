@@ -26,6 +26,7 @@ const typeDefs = `#graphql
 
   type Query {
     products: [Product]
+    product(productId: ID!): Product
   }
 `;
 
@@ -44,6 +45,10 @@ const resolvers = {
     Query: {
         books: () => books,
         products: () => db?.products,
+        product: (parent: any, arg: { productId: string }, context: any) => {
+            const result = db?.products.find((product) => product.id === arg.productId);
+            return result;
+        }
     },
 };
 
